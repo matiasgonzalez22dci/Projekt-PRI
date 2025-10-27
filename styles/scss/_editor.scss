@@ -1,0 +1,82 @@
+
+.options-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+
+}
+
+#loginBox {
+    margin:12px 0; 
+    padding:10px; 
+    border:1px solid #ccc; 
+    border-radius:8px;
+}
+
+#top-nav{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin:12px 0;
+
+    a {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+}
+
+
+.editorArea{
+    display: none;
+}
+
+#editor-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 1rem;
+}
+
+.editorArea-active {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.editor-container label{
+    font-weight: 700;
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+
+
+.editor-container  textarea{
+    padding: 0.3rem;
+    border-radius: 10px;
+    min-height: 10rem;
+
+}
+
+.cancel-edition {
+    display: none;
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+}
+
+.btn-visible {
+    display:block
+}

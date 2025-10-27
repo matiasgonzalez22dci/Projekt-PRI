@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <link rel="stylesheet" href="./styles/css/style.css" />
+</head>
+<body id="body">
+
+  <!-- Barra superior -->
+  <header class="bar">
+
+    <div class="header-container">
+    <div class="tabs">
+      <button id="about" class="active">About</button>
+      <button id="form">Servicios</button>
+      <button id="services" style="display: none;">Viewer</button>
+      <a id="editorLink" href="/editor.html" style="margin-left:8px; padding:.5rem .8rem; border:1px solid #ccc; border-radius:8px; text-decoration:none;" target="_blank">
+        Abrir editor
+      </a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <label for="langSelect">🌐</label>
+    <select id="langSelect">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+    </select>
+
+    <button id="themeBtn" title="Tema">🌓</button>
+    </div>
+
+
+      <!-- HERO -->
+  <section class="hero">
+    <img class="hero__img" src="./assets/hero-image.png" alt="Hero" />
+    <div class="hero__text">
+      <h1 data-i18n="hero.title">Bienvenido/a</h1>
+      <p data-i18n="hero.desc">Explora los servicios y proyectos disponibles en esta plataforma.</p>
+    </div>
+  </section>
+
+  </header>
+
+<!-- ASIDE siempre disponible -->
+<aside class="aside-container" aria-label="Formulario de contacto">
+  <button id="icon-formular" class="icon-aside" aria-controls="aside" aria-expanded="false">
+    💬 Contact Me
+  </button>
+
+  <section class="form-section">
+    <h1 data-i18n="form.title">Formulario</h1>
+
+    <label data-i18n="form.name">Nombre</label>
+    <input id="f-nombre" placeholder="..." />
+
+    <label data-i18n="form.email">Email</label>
+    <input id="f-email" type="email" placeholder="..." />
+
+    <label data-i18n="form.phone">Teléfono</label>
+    <input id="f-telefono" placeholder="..." />
+
+    <label data-i18n="form.address">Dirección</label>
+    <input id="f-direccion" placeholder="..." />
+
+    <label data-i18n="form.message">Mensaje</label>
+    <textarea id="message" placeholder="..."></textarea>
+
+    <button id="f-enviar" type="button" data-i18n="form.submit">Enviar</button>
+  </section>
+</aside>
+
+
+
+
+  <main id="app" class="wrap">
+
+    <!-- ABOUT => VISOR principal -->
+  <section class="about-section">
+    <h1 data-i18n="about.title">Sobre mí</h1>
+    <div id="aboutContent" class="about-content">
+      <p>—</p>
+    </div>
+  </section>
+
+
+    <!-- SERVICIOS => cards -->
+ <section class="services-section" style="display:none;">
+  <h1 data-i18n="services.title">Servicios</h1>
+  <div id="servicesContainer" class="cards"></div>
+</section>
+
+<!-- Modal para detalles de servicio -->
+<div id="serviceModal" class="modal hidden" aria-hidden="true">
+  <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <button class="modal__close" aria-label="Close">✖</button>
+    <img id="serviceModalImg" class="modal__img" alt="" />
+    <h3 id="serviceModalTitle"></h3>
+    <p id="serviceModalDesc"></p>
+        <p id="serviceModalPrice" class="modal__price"></p>
+    <p id="serviceModalDetails" class="modal__details"></p>
+  </div>
+</div>
+
+
+
+    <!-- VIEWER secundario (simple) -->
+    <section class="viewer-section" style="display:none;">
+      <h1 data-i18n="viewer.title">Visor</h1>
+      <button id="vw-reload" data-i18n="viewer.load">Cargar</button>
+      <p id="vw-output" style="margin-top:10px">—</p>
+    </section>
+
+
+
+  </main>
+
+  <footer id="footer">
+  <div class="footer__content">
+    <p id="footer-name">—</p>
+    <p id="footer-phone">—</p>
+    <p id="footer-address">—</p>
+    <p id="footer-email">—</p>
+  </div>
+</footer>
+
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/56976519424" 
+   target="_blank" 
+   id="whatsappBtn" 
+   aria-label="Chat en WhatsApp">
+  <img src="./assets/icons/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+
+
+
+  <script src="/js/theme.js"></script>
+  <script type="module" src="/js/i18n/home.js"></script>
+  <script src="/js/home/script.js"></script>
+</body>
+</html>

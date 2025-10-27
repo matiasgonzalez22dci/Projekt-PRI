@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editor simple .md</title>
+  <link rel="stylesheet" href="./styles/css/style.css" />
+  <script src="/js/theme.js" defer></script>
+</head>
+<body>
+
+  <div class="options-container">
+    
+    <div>
+      <label for="langSelectLabel" id="langSelectLabel">🌐 Idioma:</label>
+      <select id="langSelect">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <button id="themeBtn">Cambiar tema</button>
+  </div>
+  <!-- 🔐 LOGIN -->
+  <section id="loginBox">
+    <strong id="accessTitle">Acceso</strong><br>
+    <input id="loginUser" placeholder="user" />
+    <input id="loginPass" placeholder="password" type="password" />
+    <button id="loginBtn">Entrar</button>
+    <span id="loginMsg" style="margin-left:8px; color:#d33;"></span>
+  </section>
+
+ <div class="editorArea">
+<!-- NAV local -->
+<nav id="top-nav" >
+  <a href="/home.html" id="navHome">Home</a>
+  <a href="#editor" id="navEditor">Editor</a>
+  <a href="#audit" id="navAudit">Historial</a>
+  <a href="#responses" id="navResponses">Respuestas</a>
+</nav>
+
+
+
+<!-- EDITOR -->
+<section id="editor">
+  <div id="editor-header">
+    <h1 id="title">✏️ Editor: datos.es.md</h1>
+    <button id="logoutBtn" style="background:#d33;color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;">Salir</button>
+  </div>
+  <div id="editor-picker">
+      <button id="openBtn" disabled>Abrir archivo .md</button>
+      <button id="saveBtn" disabled>Guardar</button>
+  </div>
+  
+  <div class="editor-container">
+    <label id="title-editor">Edita aquí tu contenido:</label>
+    <textarea name="md-edition" id="m-edition" placeholder="Pick a file and edit here..."></textarea>
+
+    <div>
+      <button class="cancel-edition">Cancelar Edición</button>
+    </div>
+  </div>
+</section>
+
+<!-- 🧾 HISTORIAL DE ACCESOS -->
+<section id="audit" style="margin:16px 0;">
+  <h2 id="auditTitle" style="margin:0 0 8px;">Historial de accesos</h2>
+  <table id="loginHistoryTable" style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">#</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Usuario</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Fecha / hora</th>
+        </tr>
+      </thead>
+      <tbody id="loginHistoryBody">
+        <!-- Se rellena por JS -->
+      </tbody>
+    </table>
+</section>
+
+<!-- 📋 RESPUESTAS -->
+<section id="responses" style="margin:16px 0;">
+  <h2 id="responsesTitle" style="margin:0 0 8px;">Respuestas de formulario</h2>
+  <table id="formResponsesTable" style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">#</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Nombre</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Teléfono</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Dirección</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Correo</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Mensaje</th>
+          <th style="text-align:left;border-bottom:1px solid #ddd;padding:6px;">Fecha</th>
+        </tr>
+      </thead>
+
+      <tbody id="formResponsesBody">
+        <!-- Se rellena por JS -->
+      </tbody>
+    </table>
+</section>
+
+
+</div>
+
+
+ <script type="module" src="./js/i18n/editor.js"></script>
+ <script type="module" src="./js/editor/script.js"></script>
+
+
+ <script>
+
+
+
+ </script>
+</body>
+</html>
