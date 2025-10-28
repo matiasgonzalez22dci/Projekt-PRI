@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
     viewerSection.style.display   = "block";
   });
 
-  // ---------- Aside toggle (siempre disponible) ----------
+  // ---------- Aside toggle  ----------
   openFormular.addEventListener("click", ()=> {
     const active = asideContainer.classList.toggle("active");
     openFormular.setAttribute("aria-expanded", String(active));
@@ -99,18 +99,17 @@ window.addEventListener("DOMContentLoaded", () => {
   if (sendBtn) {
     sendBtn.addEventListener("click", () => {
       const data = {
-        nombre:    document.getElementById("f-nombre").value.trim(),
-        telefono:  document.getElementById("f-telefono").value.trim(),
+        name:    document.getElementById("f-nombre").value.trim(),
+        phone:  document.getElementById("f-telefono").value.trim(),
         email:     document.getElementById("f-email").value.trim(),
-        direccion: document.getElementById("f-direccion").value.trim(),
-        mensaje:   document.getElementById("message").value.trim(),
+        address: document.getElementById("f-direccion").value.trim(),
+        message:   document.getElementById("message").value.trim(),
         ts:        new Date().toISOString()
       };
 
-      const KEY = "formResponses";
-      const arr = JSON.parse(localStorage.getItem(KEY) || "[]");
-      arr.unshift(data); // agrega al inicio
-      localStorage.setItem(KEY, JSON.stringify(arr));
+      const arr = JSON.parse(localStorage.getItem("formResponses") || "[]");
+      arr.unshift(data); 
+      localStorage.setItem("formResponses", JSON.stringify(arr));
 
       alert("Formulario enviado ✔️");
 
@@ -125,9 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // ---------- FOOTER dinámico ----------
 function loadFooterData() {
   const lang =
-    window.currentLang ||
-    localStorage.getItem("lang") ||
-    (navigator.language?.startsWith("es") ? "es" : "en");
+    localStorage.getItem("lang") || "es";
 
   const file = lang === "es" ? "datos.es.md" : "datos.en.md";
 
@@ -155,22 +152,17 @@ function loadFooterData() {
       nameEl.textContent = "❌ Error al cargar datos";
     });
 }
-// Inicializa footer dinámico
 loadFooterData();
 document.addEventListener("lang:change", loadFooterData);
 
 
 
-// ---------- SERVICES dinámicos ----------
 // ---------- SERVICES dinámicos con imágenes + modal ----------
 let cachedServices = []; // para el modal
 
 function loadServices() {
   const lang =
-    window.currentLang ||
-    localStorage.getItem("lang") ||
-    (navigator.language?.startsWith("es") ? "es" : "en");
-
+    localStorage.getItem("lang") || "es";
   const file = lang === "es" ? "datos.es.md" : "datos.en.md";
   const container = document.getElementById("servicesContainer");
   if (!container) return;
@@ -185,7 +177,7 @@ function loadServices() {
         return;
       }
 
-      // Parse YAML-like simple
+      // Parse MD 
       const services = [];
       let current = null;
 
@@ -248,7 +240,7 @@ function openServiceModal(service) {
   const img  = document.getElementById("serviceModalImg");
   const t    = document.getElementById("serviceModalTitle");
   const d    = document.getElementById("serviceModalDesc");
-    const pz   = document.getElementById("serviceModalPrice");     
+  const pz   = document.getElementById("serviceModalPrice");     
   const det  = document.getElementById("serviceModalDetails");
 
   t.textContent   = service.title || "";
@@ -306,10 +298,7 @@ document.addEventListener("lang:change", () => {
 // ---------- ABOUT dinámico ----------
 function loadAbout() {
   const lang =
-    window.currentLang ||
-    localStorage.getItem("lang") ||
-    (navigator.language?.startsWith("es") ? "es" : "en");
-
+    localStorage.getItem("lang") || "es";
   const file = lang === "es" ? "datos.es.md" : "datos.en.md";
   const container = document.getElementById("aboutContent");
   if (!container) return;
@@ -324,6 +313,7 @@ function loadAbout() {
       }
 
       const get = re => (section.match(re)?.[1]?.trim() || "—");
+  
 
       const name = get(/name:\s*(.*)/i);
       const role = get(/role:\s*(.*)/i);

@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     responsesBody.innerHTML = rows.map((r, i) => {
       const date = new Date(r.ts).toLocaleString();
       const replyBtn = r.email
-        ? `<a href="mailto:${encodeURIComponent(r.email)}" 
+        ? `<a href="mailto:${r.email}" 
               style="display:inline-block;padding:4px 8px;margin-top:4px;border:2px solid #ccc;
                      border-radius:6px;text-decoration:none;font-size:0.9em;">
               📩
@@ -222,13 +222,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return `
         <tr>
           <td style="padding:6px;border-bottom:1px solid #eee;">${i + 1}</td>
-          <td style="padding:6px;border-bottom:1px solid #eee;">${r.nombre || "-"}</td>
-          <td style="padding:6px;border-bottom:1px solid #eee;">${r.telefono || "-"}</td>
-          <td style="padding:6px;border-bottom:1px solid #eee;">${r.direccion || "-"}</td>
+          <td style="padding:6px;border-bottom:1px solid #eee;">${r.name || "-"}</td>
+          <td style="padding:6px;border-bottom:1px solid #eee;">${r.phone || "-"}</td>
+          <td style="padding:6px;border-bottom:1px solid #eee;">${r.address || "-"}</td>
           <td style="padding:6px;border-bottom:1px solid #eee;">
             ${r.email || "-"}<br>${replyBtn}
           </td>
-          <td style="padding:6px;border-bottom:1px solid #eee;white-space:pre-wrap;">${r.mensaje || "-"}</td>
+          <td style="padding:6px;border-bottom:1px solid #eee;white-space:pre-wrap;">${r.message || "-"}</td>
           <td style="padding:6px;border-bottom:1px solid #eee;">${date}</td>
         </tr>`;
     }).join("");
